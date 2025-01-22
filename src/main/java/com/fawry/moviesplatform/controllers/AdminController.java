@@ -2,12 +2,12 @@ package com.fawry.moviesplatform.controllers;
 
 import com.fawry.moviesplatform.DTO.MovieDTO;
 import com.fawry.moviesplatform.entity.Movie;
-import com.fawry.moviesplatform.entity.OmdbSearchResult;
+import com.fawry.moviesplatform.DTO.OmdbSearchResultDTO;
 import com.fawry.moviesplatform.service.MoviesService;
 import jakarta.validation.Valid;
-import lombok.*;
-import org.springframework.data.domain.Page;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
