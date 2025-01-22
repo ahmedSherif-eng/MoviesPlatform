@@ -47,4 +47,15 @@ public class AdminController {
         return ResponseEntity.status(HttpStatus.OK).body(moviesService.getMoviesPage(fixedPageable));
     }
 
+    @PostMapping("/movies/batch")
+    public ResponseEntity<Boolean> addMoviesBatch(@RequestBody @Valid List<MovieDTO> movieDTOs) {
+        moviesService.addMoviesBatch(movieDTOs);
+        return ResponseEntity.status(HttpStatus.CREATED).body(Boolean.TRUE);
+    }
+
+    @DeleteMapping("/movies/batch/delete")
+    public ResponseEntity<Boolean> removeMoviesBatch(@RequestBody List<String> moviesName) {
+        boolean isDeleted = moviesService.removeMoviesBatch(moviesName);
+        return ResponseEntity.status(HttpStatus.OK).body(isDeleted);
+    }
 }
