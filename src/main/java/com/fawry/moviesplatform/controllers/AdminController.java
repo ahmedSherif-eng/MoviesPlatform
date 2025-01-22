@@ -15,16 +15,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/admin")
 @Validated
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class AdminController {
     private final MoviesService moviesService;
 
     @Value("${pagination.page-size}")
     private int pageSize;
+
 
     @GetMapping(value = "/movies/search")
     public ResponseEntity<OmdbSearchResultDTO> searchMovies(@RequestParam String query, @RequestParam String page) {
