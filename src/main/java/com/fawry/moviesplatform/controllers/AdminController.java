@@ -18,17 +18,17 @@ import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/api/admin")
 @Validated
 public class AdminController {
-    private  final MoviesService moviesService;
+    private final MoviesService moviesService;
 
     @Value("${pagination.page-size}")
     private int pageSize;
 
     @GetMapping(value = "/movies/search")
-    public ResponseEntity<OmdbSearchResult> searchMovies (@RequestParam String query){
-        OmdbSearchResult  omdbSearchResult = moviesService.searchMovies(query);
+    public ResponseEntity<OmdbSearchResultDTO> searchMovies(@RequestParam String query, @RequestParam String page) {
+        OmdbSearchResultDTO omdbSearchResult = moviesService.searchMovies(query,page);
         return ResponseEntity.status(HttpStatus.OK).body(omdbSearchResult);
     }
 
@@ -37,9 +37,11 @@ public class AdminController {
         Movie movie = moviesService.addMovie(movieDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(movie);
     }
-    @GetMapping("/movies")
-    public ResponseEntity<Page<MovieDTO>> getMoviesPage(Pageable pageable){
+
+    @GetMapping("/movies/saved")
+    public ResponseEntity<Page<MovieDTO>> getMoviesPage(Pageable pageable) {
         Pageable fixedPageable = PageRequest.of(pageable.getPageNumber(), pageSize);
-        return ResponseEntity.status(HttpStatus.OK).body(moviesService.getMoviesPage(fixedPageable));    }
+        return ResponseEntity.status(HttpStatus.OK).body(moviesService.getMoviesPage(fixedPageable));
+    }
 
 }
