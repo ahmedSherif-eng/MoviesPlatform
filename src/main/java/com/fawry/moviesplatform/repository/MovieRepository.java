@@ -10,6 +10,11 @@ import java.util.Optional;
 public interface MovieRepository extends JpaRepository<Movie,Long> {
     Optional<Movie> findById(Long Id);
     void deleteById(Long Id);
+    
+    @Query("SELECT m.title FROM Movie m")
+    List<String> findAllTitles();
+    
+    void deleteByTitle(@NonNull String title);
     Page<Movie> findAll(Pageable pageable);
 
 
