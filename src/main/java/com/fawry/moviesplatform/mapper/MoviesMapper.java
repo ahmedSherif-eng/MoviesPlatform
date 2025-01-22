@@ -9,7 +9,7 @@ public class MoviesMapper {
             return null;
         }
         Movie movie = new Movie();
-        movie.setTitle(movieDTO.getTitle());
+        movie.setTitle(movieDTO.getTitle().toLowerCase());
         movie.setType(movieDTO.getType());
         movie.setYear(movieDTO.getYear());
         movie.setImdbID(movieDTO.getImdbID());
