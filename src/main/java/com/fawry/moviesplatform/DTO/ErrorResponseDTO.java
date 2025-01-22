@@ -8,12 +8,10 @@ import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 
-@Setter
-@Getter
-@AllArgsConstructor
+@Data
 public class ErrorResponseDTO {
-    private  String apiPath;
-    private  HttpStatus httpStatus;
-    private  String errorMessage;
-    private  LocalDateTime timestamp;
+    private final String apiPath;
+    private final HttpStatus httpStatus;
+    private final String errorMessage;
+    private final LocalDateTime timestamp;
 }
