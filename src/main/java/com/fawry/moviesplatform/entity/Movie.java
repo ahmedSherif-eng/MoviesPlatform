@@ -1,37 +1,45 @@
 package com.fawry.moviesplatform.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Setter
 @Getter
-
 public class Movie {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NonNull
-    private String imdbID;
-
-    @NonNull
     private String title;
-
-    @NonNull
     private String year;
+    private String rated;
+    private String released;
+    private String runtime;
+    private String genre;
+    private String director;
+    private String writer;
+    private String actors;
+    private String plot;
+    private String language;
+    private String country;
+    private String awards;
+    private String poster;
+    private String metascore;
+    private String imdbRating;
+    private String imdbVotes;
+    private String imdbID;
+    private String type;
+    private String dvd;
+    private String boxOffice;
+    private String production;
+    private String website;
+    private boolean response;
 
-    @NonNull
-    private String Type;
-
-    @NonNull
-    private String Poster;
-
-
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Rating> ratings;
 }
