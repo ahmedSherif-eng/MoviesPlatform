@@ -32,11 +32,6 @@ public class AdminController {
         return ResponseEntity.status(HttpStatus.OK).body(omdbSearchResult);
     }
 
-    @PostMapping("/movies/new")
-    public ResponseEntity<Movie> addMovie(@RequestBody @Valid MovieDTO movieDTO) {
-        Movie movie = moviesService.addMovie(movieDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(movie);
-    }
 
     @GetMapping("/movies/saved")
     public ResponseEntity<SearchResultDTO> getMoviesPage(@RequestParam
@@ -59,8 +54,8 @@ public class AdminController {
     }
 
     @PostMapping("/movies/batch")
-    public ResponseEntity<Boolean> addMoviesBatch(@RequestBody @Valid List<MovieDTO> movieDTOs) {
-        moviesService.addMoviesBatch(movieDTOs);
+    public ResponseEntity<Boolean> addMoviesBatch(@RequestBody List<String> ImdbIds) {
+        moviesService.addMoviesBatch(ImdbIds);
         return ResponseEntity.status(HttpStatus.CREATED).body(Boolean.TRUE);
     }
 
@@ -69,4 +64,5 @@ public class AdminController {
         boolean isDeleted = moviesService.removeMoviesBatch(moviesName);
         return ResponseEntity.status(HttpStatus.OK).body(isDeleted);
     }
+
 }
