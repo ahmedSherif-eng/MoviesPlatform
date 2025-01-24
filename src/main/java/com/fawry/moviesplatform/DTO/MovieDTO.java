@@ -21,7 +21,7 @@ public class MovieDTO {
 
     @JsonProperty("Year")
     @NotEmpty(message = "Year can not be empty or null")
-    @Size(min = 4, max = 4, message = "The length of the year should be 4 character")
+    @Size(min = 4, max = 4, message = "The length of the year should be 10 character")
     private String Year;
 
     @JsonProperty("imdbID")
@@ -40,5 +40,4 @@ public class MovieDTO {
     )
     private String Poster;
 
-    // Getters and Setters
 }
