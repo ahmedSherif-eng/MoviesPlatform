@@ -28,6 +28,4 @@ public interface MovieRepository extends JpaRepository<Movie,Long> {
 
     @Modifying
     void deleteByTitle(@NonNull String title);
-    Page<Movie> findAll(Pageable pageable);
-    Optional<Movie> findByTitle(String title);
 }
