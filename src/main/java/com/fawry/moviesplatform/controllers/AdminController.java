@@ -46,6 +46,18 @@ public class AdminController {
         return ResponseEntity.status(HttpStatus.OK).body(moviesService.getMoviesPage(fixedPageable));
     }
 
+    @GetMapping("/movies/details")
+    public ResponseEntity<MovieDetailsDTO> getMovie(@RequestParam
+                                                        @Pattern(regexp = "^tt\\d{7}$", message = "imdbID must start with 'tt' followed by 7 numeric digits")
+                                                        String imdbId) {
+        return ResponseEntity.status(HttpStatus.OK).body(moviesService.searchMovieDetails(imdbId));
+    }
+
+    @GetMapping("/movies/saved/ids")
+    public ResponseEntity<List<String>> getSavedMoviesIds() {
+        return ResponseEntity.status(HttpStatus.OK).body(moviesService.getSavedMoviesIds());
+    }
+
     @PostMapping("/movies/batch")
     public ResponseEntity<Boolean> addMoviesBatch(@RequestBody @Valid List<MovieDTO> movieDTOs) {
         moviesService.addMoviesBatch(movieDTOs);
