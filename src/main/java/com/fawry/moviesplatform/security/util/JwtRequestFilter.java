@@ -3,7 +3,6 @@ package com.fawry.moviesplatform.security.util;
 import com.fawry.moviesplatform.security.CustomUserDetailsService;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -30,7 +29,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
         try {
-            // Skip token validation for login endpoint
             if (request.getRequestURI().equals("/api/auth/login")) {
                 chain.doFilter(request, response);
                 return;
