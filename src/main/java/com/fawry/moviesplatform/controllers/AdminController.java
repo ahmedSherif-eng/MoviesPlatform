@@ -1,13 +1,11 @@
 package com.fawry.moviesplatform.controllers;
 
-import com.fawry.moviesplatform.DTO.MovieDTO;
-import com.fawry.moviesplatform.entity.Movie;
-import com.fawry.moviesplatform.DTO.OmdbSearchResultDTO;
+import com.fawry.moviesplatform.DTO.MovieDetailsDTO;
+import com.fawry.moviesplatform.DTO.SearchResultDTO;
 import com.fawry.moviesplatform.service.MoviesService;
-import jakarta.validation.Valid;
+import jakarta.validation.constraints.Pattern;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -21,7 +19,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/admin")
 @Validated
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class AdminController {
     private final MoviesService moviesService;
 
@@ -30,8 +27,8 @@ public class AdminController {
 
 
     @GetMapping(value = "/movies/search")
-    public ResponseEntity<OmdbSearchResultDTO> searchMovies(@RequestParam String query, @RequestParam String page) {
-        OmdbSearchResultDTO omdbSearchResult = moviesService.searchMovies(query,page);
+    public ResponseEntity<SearchResultDTO> searchMovies(@RequestParam String query, @RequestParam String page) {
+        SearchResultDTO omdbSearchResult = moviesService.searchMovies(query,page);
         return ResponseEntity.status(HttpStatus.OK).body(omdbSearchResult);
     }
 
@@ -42,8 +39,10 @@ public class AdminController {
     }
 
     @GetMapping("/movies/saved")
-    public ResponseEntity<Page<MovieDTO>> getMoviesPage(Pageable pageable) {
-        Pageable fixedPageable = PageRequest.of(pageable.getPageNumber(), pageSize);
+    public ResponseEntity<SearchResultDTO> getMoviesPage(@RequestParam
+                                                             @Pattern(regexp = "^\\d+$", message = "page number has to be numeric value")
+                                                             String page) {
+        Pageable fixedPageable = PageRequest.of(Integer.parseInt(page), pageSize);
         return ResponseEntity.status(HttpStatus.OK).body(moviesService.getMoviesPage(fixedPageable));
     }
 
