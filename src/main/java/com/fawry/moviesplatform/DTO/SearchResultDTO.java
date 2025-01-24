@@ -1,7 +1,6 @@
-package com.fawry.moviesplatform.entity;
+package com.fawry.moviesplatform.DTO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fawry.moviesplatform.DTO.MovieDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +12,8 @@ import java.util.List;
 @Setter
 @Getter
 @NoArgsConstructor
-public class OmdbSearchResult {
+@AllArgsConstructor
+public class SearchResultDTO {
  @JsonProperty("Search")
  private List<MovieDTO> Search;
 
