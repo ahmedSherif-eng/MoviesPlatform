@@ -27,7 +27,6 @@
 - 🎬 **Movie Search and Management**: Easily search, add, and manage movies.
 - 📋 **Batch Operations for Movies**: Add or delete multiple movies at once.
 - 📱 **Responsive UI**: Works seamlessly on all devices.
-- 🔍 **Advanced Search Capabilities**: Filter movies by title, genre, and more.
 - 📊 **Pagination Support**: Navigate through large datasets with ease.
 
 ## Tech Stack
