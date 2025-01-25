@@ -1,17 +1,26 @@
 package com.fawry.moviesplatform.service;
 
-import com.fawry.moviesplatform.DTO.MovieDTO;
-import com.fawry.moviesplatform.entity.Movie;
-import com.fawry.moviesplatform.entity.OmdbSearchResult;
-import org.springframework.data.domain.Page;
+import com.fawry.moviesplatform.DTO.MovieDetailsDTO;
+import com.fawry.moviesplatform.DTO.SearchResultDTO;
 import org.springframework.data.domain.Pageable;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 public interface MoviesService {
-    OmdbSearchResult searchMovies(String query);
-    Movie addMovie(MovieDTO movieDTO);
-    void removeMovie(Long id);
-    Page<MovieDTO> getMoviesPage(Pageable pageable);
-    Movie getMovieDetails(Long id);
+    SearchResultDTO searchMovies(String query, String page);
+
+    SearchResultDTO getMoviesPage(Pageable pageable);
+
+    MovieDetailsDTO searchMovieDetails(String imdbId);
+
+    List<String> getSavedMoviesIds();
+
+    SearchResultDTO getMoviesPageContaining(String title, Pageable pageable);
+
+    @Transactional
+    boolean addMoviesBatch(List<String> ImdbIds);
+
+    @Transactional
+    boolean removeMoviesBatch(List<String> movieNames);
 }
