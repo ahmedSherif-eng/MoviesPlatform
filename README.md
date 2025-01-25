@@ -1,6 +1,6 @@
-[![wakatime](https://wakatime.com/badge/user/1573cfda-f106-4c1b-87c2-64cdbd982d7a/project/84adda27-6be1-47f5-b442-8e4bfa979525.svg)](https://wakatime.com/badge/user/1573cfda-f106-4c1b-87c2-64cdbd982d7a/project/84adda27-6be1-47f5-b442-8e4bfa979525)
-
 # Movies Platform
+
+[![wakatime](https://wakatime.com/badge/user/1573cfda-f106-4c1b-87c2-64cdbd982d7a/project/84adda27-6be1-47f5-b442-8e4bfa979525.svg)](https://wakatime.com/badge/user/1573cfda-f106-4c1b-87c2-64cdbd982d7a/project/84adda27-6be1-47f5-b442-8e4bfa979525)
 
 ## Frontend Repository [here](https://github.com/ahmedSherif-eng/MoviesFront)
 
