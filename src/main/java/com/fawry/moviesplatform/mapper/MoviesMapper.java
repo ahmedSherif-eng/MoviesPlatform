@@ -2,6 +2,7 @@ package com.fawry.moviesplatform.mapper;
 
 import com.fawry.moviesplatform.DTO.MovieDTO;
 import com.fawry.moviesplatform.DTO.MovieDetailsDTO;
+import com.fawry.moviesplatform.DTO.RatingDTO;
 import com.fawry.moviesplatform.entity.Movie;
 import com.fawry.moviesplatform.entity.Rating;
 
@@ -57,5 +58,37 @@ public class MoviesMapper {
         movieDTO.setType(movie.getType());
         movieDTO.setYear(movie.getYear());
         return movieDTO;
+    }
+
+    public static MovieDetailsDTO mapToMovieDetailsDTO(Movie movie) {
+        if (movie == null) {
+            return null;
+        }
+
+        MovieDetailsDTO movieDetailsDTO = new MovieDetailsDTO();
+        movieDetailsDTO.setImdbID(movie.getImdbID());
+        movieDetailsDTO.setPoster(movie.getPoster());
+        movieDetailsDTO.setTitle(movie.getTitle());
+        movieDetailsDTO.setType(movie.getType());
+        movieDetailsDTO.setYear(movie.getYear());
+        movieDetailsDTO.setActors(movie.getActors());
+        movieDetailsDTO.setAwards(movie.getAwards());
+        movieDetailsDTO.setCountry(movie.getCountry());
+        movieDetailsDTO.setDirector(movie.getDirector());
+        movieDetailsDTO.setGenre(movie.getGenre());
+        movieDetailsDTO.setLanguage(movie.getLanguage());
+        movieDetailsDTO.setPlot(movie.getPlot());
+        movieDetailsDTO.setProduction(movie.getProduction());
+        movieDetailsDTO.setRated(movie.getRated());
+        movieDetailsDTO.setReleased(movie.getReleased());
+        movieDetailsDTO.setRuntime(movie.getRuntime());
+        movieDetailsDTO.setWriter(movie.getWriter());
+        movieDetailsDTO.setImdbRating(movie.getImdbRating());
+        movieDetailsDTO.setImdbVotes(movie.getImdbVotes());
+        movieDetailsDTO.setRatings(movie.getRatings().stream()
+                .map(rating -> new RatingDTO(rating.getSource(), rating.getValue()))
+                .collect(Collectors.toList()));
+
+        return movieDetailsDTO;
     }
 }
