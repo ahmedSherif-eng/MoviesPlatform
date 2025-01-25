@@ -33,7 +33,7 @@ public class UserController {
 
     @GetMapping("/movies/details")
     public ResponseEntity<MovieDetailsDTO> getMovie(@RequestParam String imdbId) {
-        return ResponseEntity.status(HttpStatus.OK).body(moviesService.searchMovieDetails(imdbId));
+        return ResponseEntity.status(HttpStatus.OK).body(moviesService.getMovieDetails(imdbId));
     }
 
     @GetMapping(value = "/movies/saved/search")
