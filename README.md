@@ -2,6 +2,8 @@
 
 # Movies Platform
 
+## Frontend Repository [here](https://github.com/ahmedSherif-eng/MoviesFront)
+
 🎥 A full-stack application for managing and browsing movies, with secure JWT authentication and role-based access control. Built with Spring Boot and Angular.
 
 ## Table of Contents
