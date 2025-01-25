@@ -77,7 +77,7 @@ spring:
 ### Backend Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/ahmedSherif-eng/movies-platform.git
+   git clone https://github.com/ahmedSherif-eng/MoviesPlatform.git
    ```
 2. Navigate to the project directory:
    ```bash
