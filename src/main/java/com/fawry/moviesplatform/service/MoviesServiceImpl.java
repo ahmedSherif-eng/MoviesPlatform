@@ -66,6 +66,16 @@ public class MoviesServiceImpl implements MoviesService {
     }
 
     @Override
+    public MovieDetailsDTO getMovieDetails(String imdbId) {
+        Movie movie = movieRepository.findByImdbID(imdbId).orElseThrow(() -> new IllegalArgumentException("Movie with IMDB ID " + imdbId + " not found"));
+        if(movie == null) {
+            throw new IllegalArgumentException("Movie with IMDB ID " + imdbId + " not found");
+        }
+        System.out.println(movie.getImdbID()+" "+ movie.getTitle());
+        return MoviesMapper.mapToMovieDetailsDTO(movie);
+    }
+
+    @Override
     public SearchResultDTO getMoviesPageContaining(String title, Pageable pageable) {
         Page<Movie> moviesPage = movieRepository.findByTitleContaining(title, pageable);
         List<MovieDTO> movieDTOs = moviesPage.stream().map(MoviesMapper::mapToMovieDTO).collect(Collectors.toList());
