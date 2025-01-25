@@ -126,7 +126,7 @@ Application logs are available at:
 - Default admin and user credentials are configured in the database.
 - The application uses the OMDB API for movie data.
 - To contribute, fork the repository and submit a pull request.
-- Report issues [here](https://github.com/yourusername/movies-platform/issues).
+- Report issues [here](https://github.com/ahmedSherif-eng/movies-platform/issues).
 
 ## Screenshots
 
