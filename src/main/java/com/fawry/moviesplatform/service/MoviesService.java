@@ -16,6 +16,8 @@ public interface MoviesService {
 
     List<String> getSavedMoviesIds();
 
+    MovieDetailsDTO getMovieDetails(String imdbId);
+
     SearchResultDTO getMoviesPageContaining(String title, Pageable pageable);
 
     @Transactional
