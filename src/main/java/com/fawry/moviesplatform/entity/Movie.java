@@ -39,6 +39,6 @@ public class Movie {
     private String website;
     private boolean response;
 
-    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Rating> ratings;
 }
