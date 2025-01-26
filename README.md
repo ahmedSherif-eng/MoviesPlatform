@@ -1,6 +1,8 @@
+# Movies Platform
+
 [![wakatime](https://wakatime.com/badge/user/1573cfda-f106-4c1b-87c2-64cdbd982d7a/project/84adda27-6be1-47f5-b442-8e4bfa979525.svg)](https://wakatime.com/badge/user/1573cfda-f106-4c1b-87c2-64cdbd982d7a/project/84adda27-6be1-47f5-b442-8e4bfa979525)
 
-# Movies Platform
+## Frontend Repository [here](https://github.com/ahmedSherif-eng/MoviesFront)
 
 🎥 A full-stack application for managing and browsing movies, with secure JWT authentication and role-based access control. Built with Spring Boot and Angular.
 
@@ -25,7 +27,6 @@
 - 🎬 **Movie Search and Management**: Easily search, add, and manage movies.
 - 📋 **Batch Operations for Movies**: Add or delete multiple movies at once.
 - 📱 **Responsive UI**: Works seamlessly on all devices.
-- 🔍 **Advanced Search Capabilities**: Filter movies by title, genre, and more.
 - 📊 **Pagination Support**: Navigate through large datasets with ease.
 
 ## Tech Stack
