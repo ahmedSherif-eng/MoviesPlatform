@@ -43,7 +43,7 @@ public class AdminController {
 
     @GetMapping("/movies/details")
     public ResponseEntity<MovieDetailsDTO> getMovie(@RequestParam
-                                                        @Pattern(regexp = "^tt\\d{7}$", message = "imdbID must start with 'tt' followed by 7 numeric digits")
+                                                        @Pattern(regexp = "^tt\\d{7,8}$", message = "imdbID must start with 'tt' followed by 7 or 8 numeric digits")
                                                         String imdbId) {
         return ResponseEntity.status(HttpStatus.OK).body(moviesService.searchMovieDetails(imdbId));
     }
