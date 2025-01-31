@@ -1,6 +1,6 @@
 package com.fawry.moviesplatform.security.SecurityRepo;
 
-import com.fawry.moviesplatform.security.DTO.Roles;
+import com.fawry.moviesplatform.security.Entity.Roles;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
