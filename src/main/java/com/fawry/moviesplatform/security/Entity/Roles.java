@@ -1,4 +1,4 @@
-package com.fawry.moviesplatform.security.DTO;
+package com.fawry.moviesplatform.security.Entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
