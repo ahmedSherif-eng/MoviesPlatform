@@ -1,7 +1,8 @@
-package com.fawry.moviesplatform.security;
+package com.fawry.moviesplatform.security.service;
 
-import com.fawry.moviesplatform.security.DTO.Roles;
-import com.fawry.moviesplatform.security.DTO.Users;
+import com.fawry.moviesplatform.repository.RolesRepository;
+import com.fawry.moviesplatform.security.Entity.Roles;
+import com.fawry.moviesplatform.security.Entity.Users;
 import com.fawry.moviesplatform.security.SecurityRepo.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -16,7 +17,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
-public class CustomUserDetailsService implements UserDetailsService {
+public class CustomUserDetailsServiceImpl implements CustomUserDetailsService {
     private final UserRepository userRepository;
 
     @Override
