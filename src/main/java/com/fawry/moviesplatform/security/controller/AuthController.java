@@ -1,8 +1,9 @@
 package com.fawry.moviesplatform.security.controller;
 
-import com.fawry.moviesplatform.security.CustomUserDetailsService;
+import com.fawry.moviesplatform.security.service.CustomUserDetailsService;
 import com.fawry.moviesplatform.security.DTO.AuthenticationRequest;
 import com.fawry.moviesplatform.security.DTO.AuthenticationResponse;
+import com.fawry.moviesplatform.security.DTO.RegistrationRequest;
 import com.fawry.moviesplatform.security.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -47,6 +48,18 @@ public class AuthController {
             System.out.println("Authentication failed: " + e.getMessage());
             e.printStackTrace();
             throw e;
+        }
+    }
+    @PostMapping("/register")
+    public ResponseEntity<?> registerUser(@RequestBody RegistrationRequest registrationRequest) {
+        try {
+            userDetailsService.registerUser(
+                    registrationRequest.getUsername(),
+                    registrationRequest.getPassword()
+            );
+            return ResponseEntity.ok("User registered successfully");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("User registration failed: " + e.getMessage());
         }
     }
 }
