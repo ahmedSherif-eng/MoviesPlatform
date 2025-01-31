@@ -133,7 +133,8 @@ Application logs are available at:
 
 ### Public
 
-![image](https://github.com/user-attachments/assets/c5bc6e3a-fadd-453b-937c-a781604ca441)
+![image](https://github.com/user-attachments/assets/1bb1af11-84b5-42c5-a057-784100ef1a68)
+![image](https://github.com/user-attachments/assets/6d8da889-5edc-4dcc-8c7e-e30d04f53cae)
 ![image](https://github.com/user-attachments/assets/c090c127-9395-4190-ae67-ec36eb23024f)
 
 ### Admin
